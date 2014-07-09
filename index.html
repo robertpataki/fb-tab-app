@@ -5,10 +5,9 @@
 	<style type="text/css">
 	body, html {
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
 		padding: 0;
 		margin: 0;
-		overflow: hidden;
 		background: #efefef;
 		font-family: ;
 		font-size: 1rem;
@@ -55,7 +54,6 @@
 	}
 	.form {
 		width: 100%;
-		margin-top: 30%;
 	}
 
 	.has-shadow {
@@ -65,14 +63,82 @@
 		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.3) inset;
 	}
 
+	.l-wrapper {
+		background: red;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
+
 	.l-main {
 		max-width: 40rem;
-		height: 100%;
 		margin: 0 auto;
+	}
+
+	.linky {
+		position: absolute;
+		z-index: 1000;
+		width: 48px;
+		height: 48px;
+		top: 30px;
+		right: 30px;
+		border-radius: 100%;
+		overflow: hidden;
+		text-decoration: none;
+		font-size: 110%;
+		box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.4);
+
+		-webkit-transition-property: box-shadow;
+		-webkit-transition-duration: 1.2s;
+		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	}
+	.linky_bg {
+		width: 48px;
+		height: 48px;
+		border-radius: 100%;
+		border: 3px solid #333;
+		box-sizing: border-box;
+		-webkit-transition-property: border-width border-color;
+		-webkit-transition-duration: 0.15s;
+		-webkit-transition-delay: 0.1s;
+		-webkit-transition-timing-function: cubic-bezier(0.505, 0.715, 0.530, 0.890);
+		position: absolute;
+	}
+	.linky_label {
+		position: relative;
+		color: #333;
+		line-height: 48px;
+		text-align: center;
+		vertical-align: middle;
+	}
+	.linky:hover {
+		border-width: 4px;
+		box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.1);
+	}
+	.linky:hover .linky_label {
+		color: #efefef;
+		-webkit-transform: scale(1.6);
+		-webkit-transition-property: -webkit-transform color;
+		-webkit-transition-duration: 0.2s;
+		-webkit-transition-delay: 0.1s;
+		-webkit-transition-timing-function: cubic-bezier(0.505, 0.715, 0.530, 0.890);
+	}
+	.linky:hover .linky_bg {
+		border-width: 24px;
+		border-color: #444;
 	}
 	</style>
 </head>
 <body>
+	<a href="http://blog.hubspot.com/blog/tabid/6307/bid/26330/How-to-Create-Custom-Tabs-for-Facebook-Business-Pages.aspx" target="_blank" class="linky">
+		<div class="linky_bg"></div>
+		<div class="linky_label">?</div>
+	</a>
+
 	<div class="l-wrapper">
 		<form class="l-main">
 			<div class="form">
@@ -105,6 +171,10 @@
 				var url = baseURL + appIDInput.value + urlNextPrefix + urlInput.value;
 				window.open(url);
 			};
+
+			var validateTextInput = function() {
+
+			}
 
 			button.addEventListener('click', onSubmit);
 		});
