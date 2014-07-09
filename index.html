@@ -5,7 +5,7 @@
 	<style type="text/css">
 	body, html {
 		width: 100%;
-		min-height: 100%;
+		height: 100%;
 		padding: 0;
 		margin: 0;
 		background: #efefef;
@@ -28,7 +28,11 @@
 		color: white;
 		top: 20px;
 		text-transform: uppercase;
-		font-weight: bold;
+		font-weight: 700;
+		box-shadow: 0 -12px 0 rgba(0, 0, 0, 0.2) inset;
+		-webkit-transition-property: box-shadow font-size;
+		-webkit-transition-duration: 0.2s;
+		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 	}
 	input[type=text] {
 		background: #fff;
@@ -59,24 +63,15 @@
 	.has-shadow {
 		box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.2) inset;
 	}
-	.button-large:active {
-		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.3) inset;
-	}
-
-	.l-wrapper {
-		background: red;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 100%;
+	.button-large:hover {
+		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
+		padding-top: 28px;
 	}
 
 	.l-main {
 		max-width: 40rem;
-		margin: 0 auto;
+		margin: 0 auto 50px auto;
+		padding-top: 10%;
 	}
 
 	.linky {
@@ -89,18 +84,13 @@
 		border-radius: 100%;
 		overflow: hidden;
 		text-decoration: none;
-		font-size: 110%;
-		box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.4);
-
-		-webkit-transition-property: box-shadow;
-		-webkit-transition-duration: 1.2s;
-		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+		font-size: 200%;
 	}
 	.linky_bg {
 		width: 48px;
 		height: 48px;
 		border-radius: 100%;
-		border: 3px solid #333;
+		border: 3px solid rgba(72, 100, 159, 0.9);
 		box-sizing: border-box;
 		-webkit-transition-property: border-width border-color;
 		-webkit-transition-duration: 0.15s;
@@ -110,26 +100,25 @@
 	}
 	.linky_label {
 		position: relative;
-		color: #333;
+		color: rgba(72, 100, 159, 1);
 		line-height: 48px;
 		text-align: center;
 		vertical-align: middle;
 	}
 	.linky:hover {
 		border-width: 4px;
-		box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.1);
 	}
 	.linky:hover .linky_label {
 		color: #efefef;
-		-webkit-transform: scale(1.6);
+		-webkit-transform: scale(0.7);
 		-webkit-transition-property: -webkit-transform color;
-		-webkit-transition-duration: 0.2s;
+		-webkit-transition-duration: 0.4s;
 		-webkit-transition-delay: 0.1s;
-		-webkit-transition-timing-function: cubic-bezier(0.505, 0.715, 0.530, 0.890);
+		-webkit-transition-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 	}
 	.linky:hover .linky_bg {
 		border-width: 24px;
-		border-color: #444;
+		border-color: rgba(72, 100, 159, 1);
 	}
 	</style>
 </head>
@@ -139,21 +128,20 @@
 		<div class="linky_label">?</div>
 	</a>
 
-	<div class="l-wrapper">
-		<form class="l-main">
-			<div class="form">
-				<div class="form_section">
-					<!-- <label for="appIDInput">Facebook App ID:</label> -->
-					<input type="text" id="appIDInput" class="form_item has-shadow"autocomplete=false placeholder="Facebook App ID"></input>
-				</div>
-				<div class="form_section">
-					<!-- <label for="siteURLInput">Site URL:</label> -->
-					<input type="text" id="siteURLInput" class="form_item has-shadow" autocomplete=false placeholder="Facebook page site URL"></input>
-				</div>
+	
+	<form class="l-main">
+		<div class="form">
+			<div class="form_section">
+				<!-- <label for="appIDInput">Facebook App ID:</label> -->
+				<input type="text" id="appIDInput" class="form_item has-shadow"autocomplete=false placeholder="Facebook App ID"></input>
 			</div>
-			<button id="submitButton" class="button-large form_item has-shadow">Create App</button>
-		</form>
-	</div>
+			<div class="form_section">
+				<!-- <label for="siteURLInput">Site URL:</label> -->
+				<input type="text" id="siteURLInput" class="form_item has-shadow" autocomplete=false placeholder="Facebook page site URL"></input>
+			</div>
+		</div>
+		<button id="submitButton" class="button-large form_item">Create App</button>
+	</form>
 
 	<script type="text/javascript">
 		window.addEventListener('load', function(){
