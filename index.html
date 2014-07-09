@@ -29,7 +29,8 @@
 		top: 20px;
 		text-transform: uppercase;
 		font-weight: 700;
-		box-shadow: 0 -12px 0 rgba(0, 0, 0, 0.2) inset;
+		
+		box-shadow: 0 -12px 0 rgba(0, 0, 0, 0.3) inset;
 		-webkit-transition-property: box-shadow font-size;
 		-webkit-transition-duration: 0.2s;
 		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
@@ -61,11 +62,17 @@
 	}
 
 	.has-shadow {
-		box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.2) inset;
+		box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.1) inset;
+		-webkit-transition-property: box-shadow font-size;
+		-webkit-transition-duration: 0.2s;
+		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	}
+	.has-shadow:focus {
+		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
 	}
 	.button-large:hover {
 		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
-		padding-top: 28px;
+		padding-top: 38px;
 	}
 
 	.l-main {
