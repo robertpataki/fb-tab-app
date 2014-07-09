@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Facebook Custom Tab App</title>
+	<style type="text/css">
+	body, html {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+		background: #efefef;
+		font-family: ;
+		font-size: 1rem;
+		color: white;
+	}
+
+	body {
+		font-family: Helvetica, Arial, sans;
+	}
+
+	* {
+		position: relative;
+	}
+
+	.button-large {
+		background: #48649F;
+		cursor: pointer;
+		color: white;
+		top: 20px;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	input[type=text] {
+		background: #fff;
+	}
+	label {
+		display: block;
+	}
+	.form_section {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.form_item {
+		height: 90px;
+		margin: 0;
+		padding: 2rem;
+		width: 100%;
+		display: block;
+		-webkit-appearance: none;
+		border: none;
+		outline: none;
+		box-sizing: border-box;
+		font-size: 130%;
+	}
+	.form {
+		width: 100%;
+		margin-top: 30%;
+	}
+
+	.has-shadow {
+		box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.2) inset;
+	}
+	.button-large:active {
+		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.3) inset;
+	}
+
+	.l-main {
+		max-width: 40rem;
+		height: 100%;
+		margin: 0 auto;
+	}
+	</style>
+</head>
+<body>
+	<div class="l-wrapper">
+		<form class="l-main">
+			<div class="form">
+				<div class="form_section">
+					<!-- <label for="appIDInput">Facebook App ID:</label> -->
+					<input type="text" id="appIDInput" class="form_item has-shadow"autocomplete=false placeholder="Facebook App ID"></input>
+				</div>
+				<div class="form_section">
+					<!-- <label for="siteURLInput">Site URL:</label> -->
+					<input type="text" id="siteURLInput" class="form_item has-shadow" autocomplete=false placeholder="Facebook page site URL"></input>
+				</div>
+			</div>
+			<button id="submitButton" class="button-large form_item has-shadow">Create App</button>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		window.addEventListener('load', function(){
+			var urlHolder = document.getElementById('urlHolder');
+			var button = document.getElementById('submitButton');
+			var appIDInput = document.getElementById('appIDInput');
+			var urlInput = document.getElementById('siteURLInput');
+
+			var baseURL = 'http://www.facebook.com/dialog/pagetab?app_id=';
+			var urlNextPrefix = '&amp;next=';
+
+			var onSubmit = function(e) {
+				e.preventDefault();
+
+				var url = baseURL + appIDInput.value + urlNextPrefix + urlInput.value;
+				window.open(url);
+			};
+
+			button.addEventListener('click', onSubmit);
+		});
+	</script>
+</body>
+</html>
