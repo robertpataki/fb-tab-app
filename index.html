@@ -69,20 +69,8 @@
 		-webkit-transition-duration: 0.2s;
 		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 	}
-	.has-shadow.has-error {
-		/*box-shadow: 0 -4px 0 rgba(255, 0, 0, 0.3) inset;*/
-	}
-	.has-shadow.is-valid {
-		/*box-shadow: 0 -4px 0 rgba(0, 255, 0, 0.3) inset;*/
-	}
 	.has-shadow:focus {
 		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
-	}
-	.has-shadow.is-valid:focus {
-		/*box-shadow: 0 -6px 0 rgba(0, 255, 0, 0.5) inset;*/
-	}
-	.has-shadow.has-error:focus {
-		/*box-shadow: 0 -6px 0 rgba(255, 0, 0, 0.8) inset;	*/
 	}
 	.button-large:hover {
 		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
@@ -200,6 +188,24 @@
 		cursor: default;
 	}
 
+	.info {
+		display: block;
+		clear: both;
+		position: relative;
+		top: 50px;
+		color: #666;
+		line-height: 140%;
+		text-align: center;
+	}
+	p {
+		margin-bottom: 5px;
+		margin-top: 5px;
+	}
+	a {
+		text-decoration: none;
+		color: #48649F;
+	}
+
 	@media screen and (min-width: 320px) {
 		.l-main {
 			padding-top: 180px;
@@ -237,6 +243,7 @@
 
 	
 	<form class="l-main">
+
 		<div class="form">
 			<div class="form_section">
 				<input type="text" id="appIDInput" class="form_item has-shadow" autocomplete="off" placeholder="Facebook App ID" required="required" pattern="^[0-9]+$" />
@@ -248,6 +255,11 @@
 			</div>
 		</div>
 		<button id="submitButton" class="form_item button-large">#yolo</button>
+
+		<div class="info">
+			<p>This will add your Facebook app to your Facebook page tab</p>
+			<p><a href="http://blog.hubspot.com/blog/tabid/6307/bid/26330/How-to-Create-Custom-Tabs-for-Facebook-Business-Pages.aspx" target="_blank">#mehfacebook</a></p>
+		</div>
 	</form>
 
 	<script type="text/javascript">
