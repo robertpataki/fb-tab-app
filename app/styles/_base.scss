@@ -1,0 +1,204 @@
+body, html {
+    @include rempix(font-size, 16px);
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background: #EFEFEF;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+	position: relative;
+	@include box-sizing(border-box);
+}
+
+p {
+	@include rempix(margin, 5px auto);
+}
+a {
+	text-decoration: none;
+	color: #48649F;
+}
+
+*:focus {
+	outline: none;
+}
+
+input[type=text].form_item {
+	@include rempix(padding, 32px 54px 32px 24px);
+}
+label {
+	display: block;
+}
+input[type=text] {
+    color: #222222;
+}
+input[type=text] + label {
+	position: absolute;
+	display: block;
+	@include rempix(right, 8px);
+    @include rempix(top, 18px);
+    @include rempix(width, 40px);
+    @include rempix(height, 40px);
+
+    @include transition-property(top);
+	@include transition-duration(0.3s);
+	@include transition-timing-function(cubic-bezier(0.505, 0.715, 0.530, 0.890));
+}
+input[type=text] + label:after,
+input[type=text] + label:before {
+	@include rempix(top, -10px);
+    color: #FFFFFF;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	font-size: 300%;
+	opacity: 0;
+	text-align: center;
+	vertical-align: middle;
+	
+    @include transform(scale(0.1));
+    @include transition-property(opacity color transform);
+    @include transition-duration(0.45s);
+    @include transition-delay(0.1s);
+	@include transition-timing-function(cubic-bezier(0.680, -0.550, 0.265, 1.550));
+}
+input[type=text] + label:after {
+	content: "\2717";
+	color: #DF6C4F;
+}
+input[type=text] + label:before {
+	content: "\2714";
+	color: #3C948B;
+}
+
+
+input[type=text].is-valid + label:before,
+input[type=text].has-error + label:after {
+	opacity: 1;
+	@include transform(scale(0.5));
+}
+
+.l-main {
+	@include rempix(max-width, 288px);
+	@include rempix(margin, 0 auto 100px auto);
+	@include rempix(padding-top, 90px);
+}
+.form {
+	width: 100%;
+}
+.form_section {
+	display: block;
+	@include rempix(margin-bottom, 10px);
+}
+.form_item {
+	margin: 0;
+	@include rempix(height, 30px);
+    @include rempix(padding-top, 32px);
+    @include rempix(padding-bottom, 32px);
+	width: 100%;
+	display: block;
+	border: none;
+	outline: none;
+	font-size: 100%;
+	position: relative;
+	@include appearance(none);
+}
+
+.is-disabled {
+	@include user-select(none);
+}
+.has-shadow {
+	box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.1) inset;
+    @include transition-property(box-shadow font-size);
+    @include transition-duration(0.2s);
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1.275));
+}
+.has-shadow:focus {
+	box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
+}
+
+
+.button-large {
+    @extend .has-shadow;
+	@include rempix(top, 20px);
+	@include rempix(padding-top, 20px);
+    @include rempix(padding-bottom, 44px);
+	overflow: hidden;
+	background: #48649F;
+	box-shadow: 0 -8px 0 rgba(0, 0, 0, 0.3) inset;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.button-large:not(.is-disabled):hover {
+    @include rempix(padding-top, 26px);
+    @include rempix(padding-bottom, 38px);
+	box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.5) inset;
+}
+.button-large.is-disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.info {
+	display: block;
+	clear: both;
+	position: relative;
+    @include rempix(top, 50px);
+	color: #666666;
+	line-height: 140%;
+	text-align: center;
+}
+
+@media screen and (min-width: 320px) {
+	.l-main {
+		@include rempix(padding-top, 180px);
+        @include rempix(max-width, 336px);
+	}
+	.form_item {
+		font-size: 100%;
+	}
+}
+@media screen and (min-width: 540px) {
+	.l-main {
+		@include rempix(max-width, 480px);
+	}
+}
+@media screen and (min-width: 800px) {
+	input[type=text].form_item {
+		@include rempix(padding-left, 32px);
+        @include rempix(padding-right, 90px);
+	}
+	input[type=text] + label {
+        @include rempix(top, 28px);
+        @include rempix(right, 24px);
+	}
+	input[type=text].has-error + label:after,
+	input[type=text].is-valid + label:before {
+		@include transform(scale(0.75));
+	}
+	.l-main {
+		@include rempix(max-width, 672px);
+		@include rempix(padding-top, 200px);
+	}
+	.form_item {
+		@include rempix(height, 90px);
+		font-size: 140%;
+	}
+	.button-large {
+        @include rempix(padding-top, 32px);
+        @include rempix(padding-bottom, 32px);
+		box-shadow: 0 -12px 0 rgba(0, 0, 0, 0.3) inset;
+	}
+	.button-large:not(.is-disabled):hover {
+		@include rempix(padding-top, 38px);
+		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
+	}
+}

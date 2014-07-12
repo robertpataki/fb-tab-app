@@ -1,0 +1,10 @@
+{
+  "name": "fb-custom-tab-app",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "normalize-scss": "~3.0.1",
+    "bower-bourbon": "~3.1.8"
+  },
+  "devDependencies": {}
+}

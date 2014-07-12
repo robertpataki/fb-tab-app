@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>fb custom tab app</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <a href="http://blog.hubspot.com/blog/tabid/6307/bid/26330/How-to-Create-Custom-Tabs-for-Facebook-Business-Pages.aspx" target="_blank" class="linky">
+            <div class="linky_bg"></div>
+            <div class="linky_label">?</div>
+        </a>
+        
+        <form class="l-main">
+
+            <div class="form">
+                <div class="form_section">
+                    <input type="text" id="appIDInput" class="form_item has-shadow" autocomplete="off" placeholder="Facebook App ID" required="required" pattern="^[0-9]+$" />
+                    <label for="appIDInput"></label>
+                </div>
+                <div class="form_section">
+                    <input type="text" id="siteURLInput" class="form_item has-shadow" autocomplete="off" placeholder="Facebook page site URL" required="required" pattern="^(http|https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />
+                    <label for="siteURLInput"></label>
+                </div>
+            </div>
+            <button id="submitButton" class="form_item button-large is-disabled">#yolo</button>
+
+            <div class="info">
+                <p>This will add your Facebook app to your Facebook page tab</p>
+                <p><a href="http://blog.hubspot.com/blog/tabid/6307/bid/26330/How-to-Create-Custom-Tabs-for-Facebook-Business-Pages.aspx" target="_blank">#mehfacebook</a></p>
+            </div>
+        </form>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-42291776-2');ga('send','pageview');
+        </script>
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
