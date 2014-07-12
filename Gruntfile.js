@@ -21,11 +21,16 @@ module.exports = function (grunt) {
         dist: 'dist'
     };
 
+    // Load in the deployment config file
+    var secret = grunt.file.readJSON('secret.json');
+
     // Define the configuration for all the tasks
     grunt.initConfig({
 
         // Project settings
         config: config,
+
+        secret: secret,
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
@@ -314,7 +319,40 @@ module.exports = function (grunt) {
 
 
 
+        sftp: {
+            prod: {
+                options: {
+                    host: '<%= secret.prod.host %>',
+                    path: '<%= secret.prod.path %>',
+                    username: '<%= secret.prod.username %>',
+                    password: '<%= secret.prod.password %>',
+                    srcBasePath: 'dist/',
+                    createDirectories: true,
+                    showProgress: true
+                },
+                files: {
+                    "./": "dist/**"
+                }
+            }
+        },
 
+        open: {
+            prod : {
+                path: '<%= secret.prod.siteurl %>',
+                app: 'Google Chrome'
+            }
+        },
+
+        sshexec: {
+            clean_prod: {
+                command: 'rm -rf <%= secret.prod.path %>/*',
+                options: {
+                    host: '<%= secret.prod.host %>',
+                    username: '<%= secret.prod.username %>',
+                    password: '<%= secret.prod.password %>'
+                }
+            }
+        },
 
         compass: {
             options: {
@@ -398,5 +436,12 @@ module.exports = function (grunt) {
         'newer:jshint',
         'test',
         'build'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'build',
+        'sshexec:clean_prod',
+        'sftp:prod',
+        'open:prod'
     ]);
 };
