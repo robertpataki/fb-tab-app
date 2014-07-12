@@ -27,7 +27,7 @@
     vertical-align: middle;
 }
 .linky:hover {
-    border-width: 4px;
+    @include rempix(border-width, 4px);
 }
 .linky:hover .linky_label {
     color: #EFEFEF;
