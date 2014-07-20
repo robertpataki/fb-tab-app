@@ -1,0 +1,20 @@
+.form {
+	width: 100%;
+}
+.form_section {
+	display: block;
+	@include rempix(margin-bottom, 10px);
+}
+.form_item {
+	margin: 0;
+	@include rempix(height, 30px);
+    @include rempix(padding-top, 32px);
+    @include rempix(padding-bottom, 32px);
+	width: 100%;
+	display: block;
+	border: none;
+	outline: none;
+	font-size: 100%;
+	position: relative;
+	@include appearance(none);
+}

@@ -331,7 +331,7 @@ module.exports = function (grunt) {
                     showProgress: true
                 },
                 files: {
-                    "./": "dist/**"
+                    './': 'dist/**'
                 }
             }
         },

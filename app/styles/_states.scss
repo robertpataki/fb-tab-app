@@ -1,0 +1,58 @@
+.is-disabled {
+	@include user-select(none);
+}
+.has-shadow {
+	box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.1) inset;
+    @include transition-property(box-shadow font-size);
+    @include transition-duration(0.2s);
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1.275));
+}
+.has-shadow:focus {
+	box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
+}
+
+@media screen and (min-width: 321px) {
+	.l-main {
+		@include rempix(padding-top, 180px);
+        @include rempix(max-width, 336px);
+	}
+	.form_item {
+		font-size: 100%;
+	}
+}
+@media screen and (min-width: 540px) {
+	.l-main {
+		@include rempix(max-width, 480px);
+	}
+}
+@media screen and (min-width: 720px) {
+	input[type=text].form_item {
+		@include rempix(padding-left, 32px);
+        @include rempix(padding-right, 90px);
+	}
+	input[type=text] + label {
+        @include rempix(top, 28px);
+        @include rempix(right, 24px);
+	}
+	input[type=text].has-error + label:after,
+	input[type=text].is-valid + label:before {
+		@include transform(scale(0.75));
+	}
+	.l-main {
+		@include rempix(max-width, 672px);
+		@include rempix(padding-top, 200px);
+	}
+	input[type=text].form_item {
+		@include rempix(height, 90px);
+		font-size: 140%;
+	}
+	.button-large {
+        font-size: 150%;
+        @include rempix(height, 90px); 
+		box-shadow: 0 -12px 0 rgba(0, 0, 0, 0.3) inset;
+	}
+	.button-large:not(.is-disabled):hover {
+		@include rempix(padding-top, 38px);
+		box-shadow: 0 -6px 0 rgba(0, 0, 0, 0.5) inset;
+	}
+}

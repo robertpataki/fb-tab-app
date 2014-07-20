@@ -1,0 +1,25 @@
+.button-large {
+    @extend .has-shadow;
+	@include rempix(top, 20px);
+	@include rempix(padding-top, 30px);
+    @include rempix(padding-bottom, 44px);
+	overflow: hidden;
+	background: #48649F;
+	box-shadow: 0 -8px 0 rgba(0, 0, 0, 0.3) inset;
+	font-weight: 700;
+	font-size: 120%;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+	margin: 0 auto;
+	display: block;
+}
+.button-large:not(.is-disabled):hover {
+    @include rempix(padding-top, 26px);
+    @include rempix(padding-bottom, 38px);
+	box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.5) inset;
+}
+.button-large.is-disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}

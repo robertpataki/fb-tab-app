@@ -5,7 +5,7 @@ window.addEventListener('load', function(){
     var appIDInput = document.getElementById('appIDInput');
     var urlInput = document.getElementById('siteURLInput');
 
-    var baseURL = 'http://www.facebook.com/dialog/pagetab?app_id=';
+    var baseURL = '//www.facebook.com/dialog/pagetab?app_id=';
     var urlNextPrefix = '&next=';
 
     var updateSubmitButton = function() {

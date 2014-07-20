@@ -1,0 +1,10 @@
+.l-main {
+	@include rempix(max-width, 288px);
+	@include rempix(margin, 0 auto 100px auto);
+	@include rempix(padding-top, 90px);
+
+	@include transition-property(max-width, width);
+	@include transition-duration(0.3s);
+	@include transition-delay(0.1s);
+	@include animation-timing-function($ease-in-out-back);
+}
